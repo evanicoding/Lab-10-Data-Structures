@@ -67,6 +67,17 @@ public class BinarySearchTree {
         return false;
     }
 
+    public int findCount(int value) {
+        int visited = 0;
+        Node current = root;
+        while (current != null) {
+            visited++;
+            if (value == current.value) return visited;
+            current = (value < current.value) ? current.left : current.right;
+        }
+        return -visited;
+    }
+
     /** Number of values stored in the tree. */
     public int size() {
         return size;
